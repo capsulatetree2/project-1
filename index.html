@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <link rel="stylesheet" href="style.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT学習プラットフォーム</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobile-menu');
+      nav.classList.toggle('hidden');
+    }
+    function toggleChat() {
+      document.getElementById('chat-modal').classList.toggle('hidden');
+    }
+    function toggleAI() {
+      document.getElementById('ai-modal').classList.toggle('hidden');
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="bg-gray-900 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-bold">IT学習プラットフォーム</h1>
+      <div class="md:hidden">
+        <button onclick="toggleMenu()" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-lg">
+        <a href="course.html" class="hover:underline">コース</a>
+        <a href="#practice" class="hover:underline">試験対策</a>
+        <a href="support.html" class="hover:underline">サポート</a>
+        <a href="#" onclick="toggleAI()" class="hover:underline">AIアシスタント</a>
+        <a href="login.html" class="hover:underline">ログイン</a>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+      <a href="#courses" class="block py-2">コース</a>
+      <a href="#practice" class="block py-2">試験対策</a>
+      <a href="#support" class="block py-2">サポート</a>
+      <a href="#" onclick="toggleAI()" class="block py-2">AIアシスタント</a>
+      <a href="#login" class="block py-2">ログイン</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto text-center fade-in">
+      <h2 class="text-4xl font-bold mb-4">ゼロから始めるIT学習</h2>
+      <p class="text-xl text-gray-600">試験対策から実務経験まで、すべてこの場で。</p>
+      <a href="#courses" class="inline-block mt-6 px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition">今すぐ始める</a>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-10">📘 試験準備コース</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 rounded-xl shadow fade-in">
+          <h4 class="text-xl font-bold mb-2">基本情報技術者試験 (FE)</h4>
+          <p>基礎的なIT知識とプログラミングスキルを習得。</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-xl shadow fade-in">
+          <h4 class="text-xl font-bold mb-2">応用情報技術者試験 (AP)</h4>
+          <p>システム設計やプロジェクトマネジメントなどの応用力。</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-xl shadow fade-in">
+          <h4 class="text-xl font-bold mb-2">情報セキュリティマネジメント試験 (SG)</h4>
+          <p>セキュリティポリシーとリスク管理の知識を深める。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Section -->
+  <section id="practice" class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold text-gray-800 mb-6">📝 試験対策問題集</h3>
+      <p class="text-gray-600 mb-4">実際の試験を模した練習問題で実力をチェックしよう。</p>
+      <a href="exam-practice.html" class="text-blue-600 hover:underline">模擬問題ページへ →</a>
+    </div>
+  </section>
+
+  <!-- Chat Button -->
+  <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition">💬</button>
+
+  <!-- Chat Modal -->
+  <div id="chat-modal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+      <h2 class="text-lg font-bold mb-4">サポートへ連絡</h2>
+      <textarea class="w-full border p-2 mb-4" placeholder="メッセージを入力..."></textarea>
+      <div class="flex justify-end">
+        <button class="px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-700">送信</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Modal -->
+  <div id="ai-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
+      <h2 class="text-lg font-bold mb-4">AIアシスタント</h2>
+      <input type="text" class="w-full border p-2 mb-4" placeholder="質問を入力...">
+      <div class="text-sm text-gray-500">※このAIはまだ学習中のベータ版です</div>
+      <div class="flex justify-end mt-4">
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">送信</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 mt-20">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 IT学習プラットフォーム | 全ての権利を保有</p>
+    </div>
+  </footer>
+</body>
+</html>
